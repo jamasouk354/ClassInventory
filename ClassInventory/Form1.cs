@@ -30,14 +30,13 @@ namespace ClassInventory
         private void addButton_Click(object sender, EventArgs e)
         {
             Class character = new Class();
-            // TODO - gather all information from screen 
+            
             character.name = newNameInput.Text;
             character.team = teamInput.Text;
             character.position = positionInput.Text;
             character.age = Convert.ToInt16(ageInput.Text);
 
             // TODO - create object with gathered information
-
             // TODO - add object to global list
             invList.Add(character);
 
@@ -47,14 +46,16 @@ namespace ClassInventory
         private void removeButton_Click(object sender, EventArgs e)
         {
             // TODO - if object is in list remove it
-
+            
             // TODO - display message to indicate deletion made
+            outputLabel.Text = "Character has been deleted.";
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
             // TODO - if object entered exists in list show it
-            // TODO - else show not found message
+            if (nameInput.Text == invList[i].name) { invList.Remove(nameInput); }
+            else { outputLabel.Text = "Could not find Character."; }
         }
 
         private void showButton_Click(object sender, EventArgs e)
