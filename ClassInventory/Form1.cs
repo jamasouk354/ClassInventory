@@ -7,13 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace ClassInventory
 {
     public partial class Form1 : Form
     {
-        // TODO - create a List to store all inventory objects
+        public class Class
+        {
+            public string name, team, position;
+            public int age;
+        }
 
+        // TODO - create a List to store all inventory objects
+        List<Class> invList = new List<Class>();
+        
         public Form1()
         {
             InitializeComponent();
@@ -21,13 +29,19 @@ namespace ClassInventory
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            Class character = new Class();
             // TODO - gather all information from screen 
+            character.name = newNameInput.Text;
+            character.team = teamInput.Text;
+            character.position = positionInput.Text;
+            character.age = Convert.ToInt16(ageInput.Text);
 
             // TODO - create object with gathered information
 
             // TODO - add object to global list
+            invList.Add(character);
 
-            // TODO - display message to indicate addition made
+            outputLabel.Text = "Character has been added.";
         }
 
         private void removeButton_Click(object sender, EventArgs e)
@@ -45,7 +59,14 @@ namespace ClassInventory
 
         private void showButton_Click(object sender, EventArgs e)
         {
-            // TODO - show all objects in list
+            outputLabel.Text = null;
+            for (int i = 0; i < invList.Count; i++)
+            {
+                outputLabel.Text += invList[i].name + "\n"
+                    + invList[i].age + "\n"
+                    + invList[i].team + "\n"
+                    + invList[i].position + "";
+            }
         }
     }
 }
