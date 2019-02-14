@@ -47,15 +47,23 @@ namespace ClassInventory
         {
             // TODO - if object is in list remove it
             
-            // TODO - display message to indicate deletion made
             outputLabel.Text = "Character has been deleted.";
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            // TODO - if object entered exists in list show it
-            if (nameInput.Text == invList[i].name) { invList.Remove(nameInput); }
-            else { outputLabel.Text = "Could not find Character."; }
+            for (int i = 0; i < invList.Count; i++)
+            {
+                if (nameInput.Text == invList[i].name)
+                {
+                    outputLabel.Text = null;
+                    outputLabel.Text += invList[i].name + "\n"
+                        + invList[i].age + "\n"
+                        + invList[i].team + "\n"
+                        + invList[i].position + "";
+                }
+                else { outputLabel.Text = "Could not find Character."; }
+            }
         }
 
         private void showButton_Click(object sender, EventArgs e)
