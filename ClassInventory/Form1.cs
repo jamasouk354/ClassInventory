@@ -52,14 +52,14 @@ namespace ClassInventory
 
         private void searchButton_Click(object sender, EventArgs e)
         {
+            outputLabel.Text = null;
             for (int i = 0; i < invList.Count; i++)
             {
                 if (nameInput.Text == invList[i].name)
                 {
-                    outputLabel.Text = null;
-                    outputLabel.Text += invList[i].name + "\n"
-                        + invList[i].age + "\n"
-                        + invList[i].team + "\n"
+                    outputLabel.Text += "Name: " + invList[i].name + "\nAge: "
+                        + invList[i].age + "\nTeam: "
+                        + invList[i].team + "\nPosition: "
                         + invList[i].position + "";
                 }
                 else { outputLabel.Text = "Could not find Character."; }
@@ -71,10 +71,10 @@ namespace ClassInventory
             outputLabel.Text = null;
             for (int i = 0; i < invList.Count; i++)
             {
-                outputLabel.Text += invList[i].name + "\n"
-                    + invList[i].age + "\n"
-                    + invList[i].team + "\n"
-                    + invList[i].position + "";
+                outputLabel.Text += "Name: " + invList[i].name + "\nAge: "
+                    + invList[i].age + "\nTeam: "
+                    + invList[i].team + "\nPosition: "
+                    + invList[i].position + "\n\n";
             }
         }
     }
