@@ -46,7 +46,14 @@ namespace ClassInventory
         private void removeButton_Click(object sender, EventArgs e)
         {
             // TODO - if object is in list remove it
-            
+            for (int i = 0; i < invList.Count; i++)
+            {
+                if (nameInput.Text == invList[i].name)
+                {
+
+                }
+                else { outputLabel.Text = "Could not find the Character you want to Delete."; }
+            }
             outputLabel.Text = "Character has been deleted.";
         }
 
