@@ -38,12 +38,17 @@ namespace ClassInventory
             invList.Add(character);
 
             outputLabel.Text = "Character has been added.";
+            newNameInput.Text = "";
+            teamInput.Text = "";
+            ageInput.Text = "";
+            positionInput.Text = "";
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < invList.Count; i++)
             {
+                removeInput.Text = "";
                 if (invList[i].name == removeInput.Text)
                 {
                     invList.Remove(invList[i]);
@@ -64,9 +69,11 @@ namespace ClassInventory
                         + invList[i].age + "\nTeam: "
                         + invList[i].team + "\nPosition: "
                         + invList[i].position + "";
+                    return;
                 }
-                else { outputLabel.Text = "Could not find Character."; }
+                if (nameInput.Text != invList[i].name) { outputLabel.Text = "Could not find Character."; }
             }
+            nameInput.Text = "";
         }
 
         private void showButton_Click(object sender, EventArgs e)
