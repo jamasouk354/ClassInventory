@@ -19,7 +19,6 @@ namespace ClassInventory
             public int age;
         }
 
-        // TODO - create a List to store all inventory objects
         List<Class> invList = new List<Class>();
         
         public Form1()
@@ -36,8 +35,6 @@ namespace ClassInventory
             character.position = positionInput.Text;
             character.age = Convert.ToInt16(ageInput.Text);
 
-            // TODO - create object with gathered information
-            // TODO - add object to global list
             invList.Add(character);
 
             outputLabel.Text = "Character has been added.";
@@ -45,16 +42,15 @@ namespace ClassInventory
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            // TODO - if object is in list remove it
             for (int i = 0; i < invList.Count; i++)
             {
-                if (nameInput.Text == invList[i].name)
+                if (invList[i].name == removeInput.Text)
                 {
-
+                    invList.Remove(invList[i]);
+                    outputLabel.Text = "Character has been deleted.";
                 }
                 else { outputLabel.Text = "Could not find the Character you want to Delete."; }
             }
-            outputLabel.Text = "Character has been deleted.";
         }
 
         private void searchButton_Click(object sender, EventArgs e)
