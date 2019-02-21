@@ -28,6 +28,7 @@ namespace ClassInventory
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            outputLabel.Text = null;
             Class character = new Class();
             
             character.name = newNameInput.Text;
@@ -46,6 +47,7 @@ namespace ClassInventory
 
         private void removeButton_Click(object sender, EventArgs e)
         {
+            outputLabel.Text = null;
             for (int i = 0; i < invList.Count; i++)
             {
                 removeInput.Text = "";
